@@ -71,7 +71,7 @@ public class DummyController {
   }
 // untuk mengambil data gambar yang telah dimasukan ke data
   @RequestMapping(value = "/img", method = RequestMethod.GET, produces = {
-      MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE
+      MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE //menjadi type data png atau jpeg
   })
   // public respon untuk respon data yang diambil dari primary key
   public ResponseEntity<byte[]> getImg(@RequestParam("id") int id) throws Exception {
@@ -103,7 +103,7 @@ public class DummyController {
 // sama kayak yang parse diatas bagian sini parsing parameter (dari yang id itutuh di parse nanti masuk ke db nanti jadi int)
     int id = Integer.parseInt(request.getParameter("id"));
     Date date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("tanggal"));
-    byte[] img = multiFile.getBytes();
+    byte[] img = multiFile.getBytes(); //jadi ini tuh untuk upload foto itu kudu dibuat ke byte dulu
     dummyData.setId(id); //lalu disini untuk sett convert mengatur format nya dari id ke id dsbg
     dummyData.setTanggal(date);
     dummyData.setGambar(img); //long_blob
